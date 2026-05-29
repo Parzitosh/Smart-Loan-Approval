@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  analytics-engine:
+    build: .
+    ports:
+      - "80:8501" # Maps Streamlit directly to port 80 for the evaluator
+    environment:
+      DB_HOST: your-rds-database-string.amazonaws.com 
+      DB_PORT: "5432"
+      DB_USER: postgres
+      DB_PASSWORD: your_rds_password
+      DB_NAME: fintech_analytics
+    restart: always
